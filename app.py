@@ -1,5 +1,6 @@
 import flask
 from views import home
+from views import admin
 from api import order_api
 from pathlib import Path
 from db import session
@@ -13,6 +14,7 @@ def configure():
 def configure_routes():
     app.register_blueprint(home.blueprint)
     app.register_blueprint(order_api.blueprint)
+    app.register_blueprint(admin.blueprint)
 
 def configure_db():
     db_file = Path(__file__).parent / 'sql' / 'cloud_city.sqlite'
