@@ -1,5 +1,5 @@
 import flask
-from service import order_service
+from service import order_service, whatsapp_service
 
 blueprint = flask.Blueprint('admin', 'admin')
 
