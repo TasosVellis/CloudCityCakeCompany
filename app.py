@@ -1,4 +1,8 @@
+import json
+
 import flask
+
+from infrastructure import app_secrets
 from views import home
 from views import admin
 from api import order_api
@@ -8,8 +12,22 @@ from db import session
 app = flask.Flask(__name__)
 
 def configure():
+    configure_secrets()
     configure_routes()
     configure_db()
+
+def configure_secrets():
+    file = Path(__file__).parent / "secrets.json"
+    print(file)
+    if not file.exists():
+        raise Exception("Cannot start, secrets.json file is missing. Need to copy the template over?")
+
+    with open(file, 'r') as fin:
+        secrets = json.load(fin)
+
+        sendgrid_ = secrets['sendgrid']
+        app_secrets.sendgrid_api_key = sendgrid_['secret_key']
+        app_secrets.sendgrid_key_name = sendgrid_['key_name']
 
 def configure_routes():
     app.register_blueprint(home.blueprint)

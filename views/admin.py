@@ -16,5 +16,6 @@ def fulfill(order_id: int):
 
     order_service.fulfill_order(order_id)
 
-    # TODO: Send whatsapp message to notify the customer!
+    # Send whatsapp message to notify the customer!
+    whatsapp_service.send_cake_ready(order)
     return flask.redirect('/admin')
