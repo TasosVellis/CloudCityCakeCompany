@@ -155,3 +155,4 @@ cython_debug/
 #.idea/
 /secrets.json
 sendgrid.env
+/sql/

@@ -1,0 +1,14 @@
+{
+    "customer": {
+        "number": "whatsapp:11111111",
+        "name": "Adam Smith",
+        "email": "email@mail.com"
+    },
+    "cake": {
+        "topping": "bacon",
+        "frosting": "chocolate",
+        "flavour": "red velvet",
+        "size": "large"
+    },
+    "price": 25
+}
